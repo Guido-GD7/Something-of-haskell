@@ -1,4 +1,4 @@
-g1 :: Int -> Int -> Int 
+g1 :: Int -> Int -> Int --- Sum from i to n of i^j
 g1 i n | i > n = 0
        | i == 0 = 0
        | n == i = i^n
@@ -6,7 +6,7 @@ g1 i n | i > n = 0
 
 
 
-g22 :: Int -> Int -> Int --- Sum from i to n of i^j
+g22 :: Int -> Int -> Int 
 g22 i n | i == 0 = 0 
         | otherwise = ( g22 ( i-1 ) n + i^n ) 
  
