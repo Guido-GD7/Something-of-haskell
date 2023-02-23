@@ -49,7 +49,12 @@ initt l |  ( longitud l == 1 ) = []
 
 reverso :: [Int] -> [Int] -- Similar to reverse. Given a list reverso returns the list but reversed. Example:[1,2,3] ---> [3,2,1]/Similar a reverse. Dada una lista reverso devuelve la lista pero invertida
 reverso l | l == [] = []
-          | otherwise = ( lastt l ) : reverso ( initt l )                       
+          | otherwise = ( lastt l ) : reverso ( initt l )
+          
+eliminarRepetidosAlFinal :: [Int] -> [Int] -- Opposite" to eliminarRepetidosAlInicio. Ex: [1,2,3,9,5,7,8,9,12,9] -> [1,2,3,9,5,7,8,2]/El opuesto" a eliminarRepetidosAlInicio
+eliminarRepetidosAlFinal l | l == [] = []
+                           | ( pertenece ( head l ) ( tail l ) == True ) = eliminarRepetidosAlFinal ( ( head l ) : ( quitarTodas ( head l ) ( tail l ) ) )
+                           | otherwise = ( head l ) : eliminarRepetidosAlFinal ( tail l )
 
 
 eliminarRepetidosAlInicio :: [Int] -> [Int] -- Which leaves the last occurrence in the list of each element, removing additional repetitions/Deja la ultima aparicion de cada elemento en la lista, eliminando las repeticiones
